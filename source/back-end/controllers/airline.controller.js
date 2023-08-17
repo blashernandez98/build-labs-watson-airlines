@@ -11,6 +11,7 @@ const Airlines = require('../schemas/airline.schema')
  */
 const getAllAirlines = async (req = request, res = response) => {
   // Returns all Airline objects under "result" field
+  // #swagger.description = 'Returns list of all airlines'
   /* #swagger.responses[200] = {
             "description": "OK",
             "content": {
@@ -31,9 +32,7 @@ const getAllAirlines = async (req = request, res = response) => {
         }   
     */
   try {
-    // Your Code Goes Here!!!!
-    const result = await Airlines.find({})
-    // Return query result
+    const result = await Airlines.find({}).select('-_id')
     res.json({
       result: result,
     })

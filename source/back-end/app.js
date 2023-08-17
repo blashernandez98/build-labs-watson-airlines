@@ -1,16 +1,15 @@
 const path = require('path')
 const mongoose = require('mongoose')
+const express = require('express')
 
 async function main() {
-  const express = require('express')
-
   // Create instance of Express app
   const app = express()
 
   require('dotenv').config({ path: path.resolve(__dirname, '.env') })
 
   // Connect to the database
-  const { create_connection } = require('./utils/mongodb')
+  const { create_connection, close_connection } = require('./utils/mongodb')
   create_connection()
 
   // Middleware to parse incoming request bodies
@@ -30,6 +29,13 @@ async function main() {
   app.use((err, req, res, next) => {
     console.error(err.stack)
     res.status(500).json({ message: err.message })
+  })
+
+  // Handle process termination
+  process.on('SIGINT', async () => {
+    console.log('Closing server and database connections...')
+    await close_connection()
+    process.exit(0)
   })
 
   // Start the server
