@@ -104,7 +104,7 @@ const getFlightById = async (req = request, res = response) => {
     const result = await Flights.findById(req.params.id).select('-_id')
     // Return query result
     res.json({
-      result: result,
+      result: [result], // testing watson assistant with array
     })
   } catch (error) {
     res.json({
