@@ -37,18 +37,19 @@ const getAllAirports = async (req = request, res = response) => {
   try {
     const query = {}
     if (req.query.city) {
-      query.CITY = req.query.city
+      query.CITY = { '$regex': req.query.city, $options: 'i' }
     }
 
     if (req.query.state) {
-      query.STATE = req.query.state
+      query.STATE = { '$regex': req.query.state, $options: 'i' }
     }
 
     if (req.query.country) {
-      query.COUNTRY = req.query.country
+      query.COUNTRY = { '$regex': req.query.country, $options: 'i' }
     }
+    // Make query but case insensitive
+    const result = await Airports.find(query).select('-_id').limit(20)
 
-    const result = await Airports.find(query).select('-_id').limit(10)
     // Return query result
     res.json({
       result: result,
