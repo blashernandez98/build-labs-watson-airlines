@@ -6,61 +6,24 @@ const swagger_autogen = require('swagger-autogen')({ openapi: '3.0.0' })
 // Data schemas
 const mongo_specs = {
   Flight: {
-    type: 'object',
-    properties: {
-      AIRLINE: {
-        type: 'string',
-      },
-      FLIGHT_NUMBER: {
-        type: 'number',
-      },
-      ORIGIN_AIRPORT: {
-        type: 'string',
-      },
-      DESTINATION_AIRPORT: {
-        type: 'string',
-      },
-      CANCELLED: {
-        type: 'boolean',
-      },
-      DEPARTURE_DATE: {
-        type: 'date',
-      },
-      ARRIVAL_DATE: {
-        type: 'date',
-      },
-    },
+    AIRLINE: 'Watson',
+    FLIGHT_NUMBER: 43,
+    ORIGIN_AIRPORT: 'LAX',
+    DESTINATION_AIRPORT: 'SFO',
+    CANCELLED: false,
+    DEPARTURE_DATE: 'Fri Aug 18 2023 12:30',
+    ARRIVAL_DATE: 'Fri Aug 18 2023 16:30',
   },
   Airline: {
-    type: 'object',
-    properties: {
-      IATA_CODE: {
-        type: 'string',
-      },
-      AIRLINE: {
-        type: 'string',
-      },
-    },
+    IATA_CODE: 'AA',
+    AIRLINE: 'American Airlines Inc.',
   },
   Airport: {
-    type: 'object',
-    properties: {
-      IATA_CODE: {
-        type: 'string',
-      },
-      AIRPORT: {
-        type: 'string',
-      },
-      CITY: {
-        type: 'string',
-      },
-      STATE: {
-        type: 'string',
-      },
-      COUNTRY: {
-        type: 'string',
-      },
-    },
+    IATA_CODE: 'LAX',
+    AIRPORT: 'Los Angeles International Airport',
+    CITY: 'Los Angeles',
+    STATE: 'California',
+    COUNTRY: 'United States',
   },
 }
 
@@ -78,11 +41,11 @@ const general_specs = {
   },
   servers: [
     {
-      url: 'https://localhost:3000',
+      url: 'https://localhost:8080',
       description: 'Local Server',
     },
     {
-      url: 'https://{app-name}.{cloud-region}.codeengine.appdomain.cloud',
+      url: 'https://watson-rest-api.1642glnsh50v.us-south.codeengine.appdomain.cloud',
       description: 'IBM Code Engine Deployment',
     },
   ],
