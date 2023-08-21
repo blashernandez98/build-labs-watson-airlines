@@ -1,0 +1,18 @@
+[
+    {
+        "question": "¿Cuanto equipaje puedo llevar?",
+        "answer": "Puedes llevar hasta 25kg de equipaje de mano y 50kg de equipaje de bodega."
+    },
+    {
+        "question": "¿Puedo cambiar mi vuelo después de reservarlo?",
+        "answer": "Sí, puedes realizar cambios en tu reserva, como ajustar las fechas o los destinos de viaje. Sin embargo, ten en cuenta que pueden aplicarse cargos por cambios. Recomendamos ponerse en contacto con nuestro equipo de soporte o iniciar sesión en tu cuenta para gestionar tu reserva."
+    },
+    {
+        "question": "¿Cómo hago el check-in para mi vuelo?",
+        "answer": "El check-in en línea está disponible 24 horas antes de la salida de tu vuelo. Visita nuestra página de Check-In e introduce los detalles de tu reserva para seleccionar asientos y recibir tu tarjeta de embarque."
+    },
+    {
+        "question": "¿Cómo puedo reservar un vuelo con Watson Airlines?",
+        "answer": "¡Reservar un vuelo con Watson Airlines es fácil! Simplemente visita nuestro sitio web o utiliza nuestra aplicación móvil para buscar vuelos disponibles, seleccionar tus fechas y destinos de viaje, y seguir las indicaciones para completar tu reserva."
+    }
+]
