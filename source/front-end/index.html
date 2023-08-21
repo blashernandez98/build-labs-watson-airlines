@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/plane.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Watson Airlines</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.watsonAssistantChatOptions = {
+        integrationID: '6f546620-d866-42ec-a810-a44dc672bd5c', // The ID of this integration.
+        region: 'us-east', // The region your integration is hosted in.
+        serviceInstanceID: '3405a6bd-c39b-466a-9ef3-cabc7c4cd680', // The ID of your service instance.
+        onLoad: function (instance) {
+          window.webChat = instance
+          instance.updateLocale('es')
+          instance.updateHomeScreenConfig({
+            is_on: true,
+            greeting: 'Bienvenido a Watson Airlines. ¿Cómo puedo ayudarle?',
+            starters: {
+              is_on: true,
+              buttons: [
+                {
+                  label: 'Cuentame sobre Watson',
+                },
+                {
+                  label: 'Buscar lista de vuelos',
+                },
+                {
+                  label: 'Informacion sobre mi vuelo',
+                },
+              ],
+            },
+          })
+          instance.render()
+        },
+      }
+      setTimeout(function () {
+        const t = document.createElement('script')
+        t.src =
+          'https://web-chat.global.assistant.watson.appdomain.cloud/versions/' +
+          (window.watsonAssistantChatOptions.clientVersion || 'latest') +
+          '/WatsonAssistantChatEntry.js'
+        document.head.appendChild(t)
+      })
+    </script>
+  </body>
+</html>
